@@ -1,12 +1,15 @@
-import { Controller, Get } from '@nestjs/common';
-import { CreateOrderInteractor } from './app/create-order.interactor';
+import { Body, Controller, Get } from '@nestjs/common';
+import { CreatePurchaseInput } from 'app/create-purchase.input';
+import { CreatePurchaseInteractor } from './app/create-purchase.interactor';
 
-@Controller('order')
+@Controller('purchase')
 export class AppController {
-  constructor(private readonly interactor: CreateOrderInteractor) {}
+  constructor(private readonly interactor: CreatePurchaseInteractor) {}
 
   @Get()
-  createOrder(): void {
-    this.interactor.createOrder();
+  async createOrder(@Body() props: CreatePurchaseInput): Promise<void> {
+    console.log(props);
+
+    return this.interactor.handle();
   }
 }

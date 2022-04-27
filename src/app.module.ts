@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
-import { CreateOrderInteractor } from './app/create-order.interactor';
+import { CreatePurchaseInteractor } from './app/create-purchase.interactor';
 
 @Module({
   imports: [],
   controllers: [AppController],
-  providers: [CreateOrderInteractor],
+  providers: [CreatePurchaseInteractor],
 })
 export class AppModule {}
