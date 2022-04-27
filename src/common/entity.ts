@@ -1,4 +1,4 @@
-import { EntityId } from './EntityId';
+import { EntityId } from './entity_id';
 
 abstract class Entity<T = unknown> {
   protected readonly _id: string;
