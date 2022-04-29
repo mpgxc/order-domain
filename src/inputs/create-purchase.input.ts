@@ -15,14 +15,6 @@ class PurchaseProducts {
   @IsNotEmpty()
   productId: string;
 
-  @IsString()
-  @IsNotEmpty()
-  name: string;
-
-  @IsNumber()
-  @IsNotEmpty()
-  price: number;
-
   @IsNumber()
   @IsNotEmpty()
   quantity: number;
