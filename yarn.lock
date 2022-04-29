@@ -615,15 +615,6 @@
     tslib "2.3.1"
     uuid "8.3.2"
 
-"@nestjs/microservices@^8.4.4":
-  version "8.4.4"
-  resolved "https://registry.yarnpkg.com/@nestjs/microservices/-/microservices-8.4.4.tgz#466f860dd8997f61518bdeef871168796df7904a"
-  integrity sha512-V1xBs5mBFaWGF7RuLSQBG9ydcvX+j8RxHnk9pYF2I5kBdWt7AyTuG2qMt7es06HXEbgUmavw/zn+P6Q2WQIS5A==
-  dependencies:
-    iterare "1.2.1"
-    json-socket "0.3.0"
-    tslib "2.3.1"
-
 "@nestjs/platform-express@^8.0.0":
   version "8.4.4"
   resolved "https://registry.yarnpkg.com/@nestjs/platform-express/-/platform-express-8.4.4.tgz#c01de14ddc9ba6f26e3290cc165c784a64071d98"
@@ -676,7 +667,7 @@
     consola "^2.15.0"
     node-fetch "^2.6.1"
 
-"@prisma/client@^3.13.0":
+"@prisma/client@^3.12.0":
   version "3.13.0"
   resolved "https://registry.yarnpkg.com/@prisma/client/-/client-3.13.0.tgz#84511ebdf6ba75f77ca08495b9f73f22c4255654"
   integrity sha512-lnEA2tTyVbO5mS1ehmHJQKBDiKB8shaR6s3azwj3Azfi5XHIfnqmkolLCvUeFYnkDCNVzGXJpUgKwQt/UOOYVQ==
@@ -3336,11 +3327,6 @@ json-schema-traverse@^1.0.0:
   resolved "https://registry.yarnpkg.com/json-schema-traverse/-/json-schema-traverse-1.0.0.tgz#ae7bcb3656ab77a73ba5c49bf654f38e6b6860e2"
   integrity sha512-NM8/P9n3XjXhIZn1lLhkFaACTOURQXjWhV4BA/RnOv8xvgqtqpAX9IO4mRQxSx1Rlo4tqzeqb0sOlruaOy3dug==
 
-json-socket@0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/json-socket/-/json-socket-0.3.0.tgz#f4b953c685bb8e8bd0b72438f5208d9a0799ae07"
-  integrity sha512-jc8ZbUnYIWdxERFWQKVgwSLkGSe+kyzvmYxwNaRgx/c8NNyuHes4UHnPM3LUrAFXUx1BhNJ94n1h/KCRlbvV0g==
-
 json-stable-stringify-without-jsonify@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/json-stable-stringify-without-jsonify/-/json-stable-stringify-without-jsonify-1.0.1.tgz#9db7b59496ad3f3cfef30a75142d2d930ad72651"
@@ -3886,7 +3872,7 @@ pretty-format@^27.0.0, pretty-format@^27.5.1:
     ansi-styles "^5.0.0"
     react-is "^17.0.1"
 
-prisma@^3.13.0:
+prisma@^3.12.0:
   version "3.13.0"
   resolved "https://registry.yarnpkg.com/prisma/-/prisma-3.13.0.tgz#b11edd5631222ff1bf1d5324732d47801386aa8c"
   integrity sha512-oO1auBnBtieGdiN+57IgsA9Vr7Sy4HkILi1KSaUG4mpKfEbnkTGnLOxAqjLed+K2nsG/GtE1tJBtB7JxN1a78Q==
