@@ -1,4 +1,4 @@
-import { ObjectValue } from '../../../common/object-value';
+import { ObjectValue } from '../../commons/object-value';
 
 type AddressProps = {
   city: string;

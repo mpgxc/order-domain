@@ -1,4 +1,4 @@
-import { AggregateRoot } from '../../../common/aggregate-root';
+import { AggregateRoot } from '../../commons/aggregate-root';
 import { PurchaseProduct } from './purchases_products';
 
 enum PurchasesStatus {
@@ -16,11 +16,19 @@ type PurchasesProps = {
 };
 
 class Purchase extends AggregateRoot<PurchasesProps> {
+  get customerId(): string {
+    return this._props.customerId;
+  }
+
+  get purchaseDate(): Date {
+    return this._props.purchaseDate;
+  }
+
   get purchaseProducts(): Array<PurchaseProduct> {
     return this._props.purchaseProducts;
   }
 
-  get purchaseStatus() {
+  get purchaseStatus(): PurchasesStatus {
     return this._props.purchaseStatus;
   }
 
