@@ -1,4 +1,4 @@
-import { AggregateRoot } from '../../common/aggregate-root';
+import { AggregateRoot } from '../commons/aggregate-root';
 
 type CustomerProps = {
   name: string;
