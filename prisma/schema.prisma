@@ -1,0 +1,73 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Customer {
+  id        String     @id @default(cuid())
+  name      String
+  purchases Purchase[]
+
+  created_at DateTime? @default(now())
+  updated_at DateTime  @updatedAt
+
+  @@map("customers")
+}
+
+enum PurchasesStatus {
+  PENDING
+  APPROVED
+  CANCELED
+  CONCLUDED
+}
+
+model Purchase {
+  id             String          @id @default(cuid())
+  purchaseStatus PurchasesStatus @default(PENDING)
+
+  customer   Customer @relation(fields: [customerId], references: [id])
+  customerId String
+
+  purchaseProducts PurchaseProduct[]
+
+  purchaseDate DateTime? @default(now())
+  updated_at   DateTime  @updatedAt
+
+  @@index([purchaseStatus])
+  @@map("purchases")
+}
+
+model PurchaseProduct {
+  id       String  @id @default(cuid())
+  name     String
+  price    Decimal @db.Decimal(12, 2)
+  quantity Int
+
+  product   Product @relation(fields: [productId], references: [id])
+  productId String
+
+  purchase   Purchase? @relation(fields: [purchaseId], references: [id])
+  purchaseId String?
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  @@map("purchase_products")
+}
+
+model Product {
+  id    String  @id @default(cuid())
+  name  String
+  price Decimal @db.Decimal(12, 2)
+
+  PurchaseProduct PurchaseProduct[]
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  @@map("products")
+}
