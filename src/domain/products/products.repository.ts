@@ -1,5 +1,5 @@
-import { Product } from './product';
 import { Maybe } from '../commons/maybe';
+import { Product } from './product';
 
 export type ProductResponse = {
   id: string;

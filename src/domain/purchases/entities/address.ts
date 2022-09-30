@@ -20,6 +20,7 @@ export class Address extends ObjectValue<AddressProps> {
   }
 
   // TODO: Implementar a função de validação dos campos do endereço
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   static validate() {}
 
   static build(props: AddressProps): Address {

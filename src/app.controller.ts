@@ -1,17 +1,27 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
-import { CreatePurchaseInput } from './inputs/create-purchase.input';
+import { Body, Controller, Get, Inject, Post } from '@nestjs/common';
+
+import { ICreateCustomerInteractor } from 'domain/customers/interactors/create-customer';
+import { ICreateProductInteractor } from 'domain/products/interactors/create-product';
+import { ICreatePurchaseInteractor } from 'domain/purchases/interactors/create-purchase';
+
 import { CreateCustomerInteractor } from './app/interactors/create-customer.interactor';
+import { CreateProductInteractor } from './app/interactors/create-product.interactor';
 import { CreatePurchaseInteractor } from './app/interactors/create-purchase.interactor';
 import { CreateCustomerInput } from './inputs/create-customer.input';
 import { CreateProductInput } from './inputs/create-product.input';
-import { CreateProductInteractor } from './app/interactors/create-product.interactor';
+import { CreatePurchaseInput } from './inputs/create-purchase.input';
 
 @Controller()
 export class AppController {
   constructor(
-    private readonly purchaseInteractor: CreatePurchaseInteractor,
-    private readonly customerInteractor: CreateCustomerInteractor,
-    private readonly productInteractor: CreateProductInteractor,
+    @Inject(CreatePurchaseInteractor.name)
+    private readonly purchaseInteractor: ICreatePurchaseInteractor,
+
+    @Inject(CreateCustomerInteractor.name)
+    private readonly customerInteractor: ICreateCustomerInteractor,
+
+    @Inject(CreateProductInteractor.name)
+    private readonly productInteractor: ICreateProductInteractor,
   ) {}
 
   @Get('purchase')

@@ -1,15 +1,22 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
-import { PurchaseMixinRepository } from '../../app/repositories/mixin.repository';
+import { Inject, Injectable, NotFoundException } from '@nestjs/common';
+
+import { PurchaseInputMapper } from 'app/mappers/purchase-input.mapper';
+import {
+  IPurchaseMixinRepository,
+  PurchaseMixinRepository,
+} from 'app/repositories/mixin.repository';
+import { PurchaseFactory } from 'domain/purchases/factories/purchase.factory';
 import {
   CreatePurchaseInput,
   ICreatePurchaseInteractor,
-} from '../../domain/purchases/interactors/create-purchase';
-import { PurchaseInputMapper } from '../../app/mappers/purchase-input.mapper';
-import { PurchaseFactory } from 'domain/purchases/factories/purchase.factory';
+} from 'domain/purchases/interactors/create-purchase';
 
 @Injectable()
 class CreatePurchaseInteractor implements ICreatePurchaseInteractor {
-  constructor(private readonly repository: PurchaseMixinRepository) {}
+  constructor(
+    @Inject(PurchaseMixinRepository.name)
+    private readonly repository: IPurchaseMixinRepository,
+  ) {}
 
   async handle({ customerId, products }: CreatePurchaseInput): Promise<void> {
     const productsExists = await this.repository.product.findMany(

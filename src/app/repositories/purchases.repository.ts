@@ -1,13 +1,13 @@
-import { Purchase } from '../../domain/purchases/entities/purchases';
-import { PrismaService } from '../../infra/database/prisma.service';
+import { Injectable } from '@nestjs/common';
 
 import { Maybe } from 'domain/commons/maybe';
+import { Purchase } from 'domain/purchases/entities/purchases';
 import { PurchaseProduct } from 'domain/purchases/entities/purchases_products';
 import {
   IPurchaseRepository,
   PurchaseResponse,
-} from '../../domain/purchases/purchases.repository';
-import { Injectable } from '@nestjs/common';
+} from 'domain/purchases/purchases.repository';
+import { PrismaService } from 'infra/database/prisma.service';
 
 enum PurchasesStatus {
   PENDING,
@@ -85,7 +85,7 @@ class PurchaseRepository implements IPurchaseRepository {
 
     if (!purchase) return null;
 
-    // TODO: Adicionar um ervice DataMapper para Purchase
+    // TODO: Adicionar um service DataMapper para Purchase
     //! toDomain
     const purchaseProducts = purchase.purchaseProducts.map(
       ({ id, name, price, productId, quantity }) =>

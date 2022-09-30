@@ -1,11 +1,12 @@
 import { Injectable } from '@nestjs/common';
-import { Maybe } from '../../domain/commons/maybe';
-import { Product } from '../../domain/products/product';
+
+import { Maybe } from 'domain/commons/maybe';
+import { Product } from 'domain/products/product';
 import {
   IProductsRepository,
   ProductResponse,
-} from '../../domain/products/products.repository';
-import { PrismaService } from '../../infra/database/prisma.service';
+} from 'domain/products/products.repository';
+import { PrismaService } from 'infra/database/prisma.service';
 
 @Injectable()
 class ProductsRepository implements IProductsRepository {
